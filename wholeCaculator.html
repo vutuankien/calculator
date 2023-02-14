@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>whole calculator</title>
+</head>
+<body>
+      <form method="post" name="frm" >
+            <table id = main border="1" cellspacing="1" cellpadding="1">
+                  <tr>
+                        <td colspan="4" id="heading-title">
+                              máy tính của vũ tuấn kiên
+                        </td>
+                  </tr>
+                  <tr>
+                        <td colspan="4">
+                              <textarea name="result"></textarea>
+                        </td>
+                  </tr>
+                  <tr>
+                        <td><input onclick="calculator(this.value);" type="button" value="7"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="8"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="9"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="+"></td>
+                  </tr>
+                  <tr>
+                        <td><input onclick="calculator(this.value);" type="button" value="4"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="5"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="6"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="-"></td>
+                  </tr>
+                  <tr>
+                        <td><input onclick="calculator(this.value);" type="button" value="1"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="2"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="3"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="x"></td>
+                  </tr>
+                  <tr>
+                        <td><input onclick="calculator(this.value);" type="button" value="0"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="AC"></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="="></td>
+                        <td><input onclick="calculator(this.value);" type="button" value="&divide;"></td>
+                  </tr>
+            </table>
+      </form>
+
+      <style>
+            body{
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background-color: rgb(168, 171, 166);
+            }
+            table{
+                  border: 1px solid red;
+            }
+            #heading-title{
+                  color:white;
+                  font-size: 10px;
+                  text-align: center;
+                  background-color: brown;
+                  text-transform: uppercase;
+            }
+            #main td{
+                  text-align: center;
+            }
+            input:hover{
+                  background-color: rgb(95, 95, 95);
+                  /* border: none; */
+            }
+      </style>
+
+      <script>
+            function calculator(mark){
+                  var str = document.frm.result.value;
+
+                  if(mark == 'x'){
+                        mark = '*';
+                  }
+                  if( mark == '&divide;'){
+                        mark = '/';
+                  }
+                  if(mark == '='){
+		            str = eval(str);
+                  }
+                  else if(mark == 'AC'){
+                        str = '';
+                  }
+                  else{
+                        str += mark;
+                  }
+
+                  document.frm.result.value = str;
+            }
+      </script>
+</body>
+</html>
